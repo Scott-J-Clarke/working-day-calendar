@@ -1,50 +1,31 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run until the 
-//browser has finished rendering all the elements in the html.
-
-// Sets current date in header of scheduler.
+// Variables set in jQuery syntax. First variable sets current date.
 var todayEl = dayjs();
 $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 
-// Save button set using jQuery syntax.
-var saveButtonEl = $(".saveBtn");
-
-// <textarea> set to a varaible using jQuery syntax.
-var descriptionEl = $(".description");
-
-// A page can only be safely altered when the document is "ready."
-// jQuery checks the state of readiness for you with the code: 
-
-// $( document ).ready(function() {
-//   console.log( "ready!" );
-// });
-
-// This code can be shortened to:
-
-// $(function() {
-// });
+var saveButtonEl = $('.saveBtn');
+var descriptionEl = $('.description');
 
 // Code inside this opening jQuery function will only run once the DOM is ready for JavaScript code to execute.
-
 $(function () {
+  saveButtonEl.on('click', function(event) {
+    event.preventDefault();
+    
+    var description = {
+      taskDescription: descriptionEl.val()
+    }
 
-  saveButtonEl.on('click', function () {
+    localStorage.setItem("description", JSON.stringify(description));
+    
   // Code here that takes text from descriptionEl and puts it into localStorage.
   // Only able to put one "description" into localStorage.
-  // "Application" registers descriptionEl as [object Object].
+  // "Application" registers descriptionEl as series of nested objects.
   // Have to use an empty array to push multiple localStorage events into it?
-  
-    localStorage.setItem("description", descriptionEl);
   
   });
   
-  // console.log( "ready!" );
-
-
-  
-
   // TODO: Add a listener for click events on the save button. 
   
-  // This code should use the id in the containing time-block as a key to save the user input inlocal storage. 
+  // This code should use the id in the containing time-block as a key to save the user input in local storage. 
   
   // HINT: What does `this` reference in the click listener function?
  
