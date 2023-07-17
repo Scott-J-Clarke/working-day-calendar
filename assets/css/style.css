@@ -12,39 +12,58 @@ textarea {
   padding: 10px;
 }
 
+/* .description is part of <textarea> for each
+   type of time black (past, present, future) */
 .description {
   white-space: pre-wrap;
 }
 
+/* .time-block is part of the div for each type of
+   time block (past, present, future) */
 .time-block {
   border-radius: 15px;
 }
 
+/* .row is part of the div for each type of time
+   block. "row" is next to "time-block" */
 .row {
   border-top: 1px solid white;
 }
 
+/* This .hour is the class that sets the CSS for
+   the time (9AM, etc.) on the right-hand side. */
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/* .past is the whole row past part of scheduler.
+   What does "color: white" do? Supposed to make
+   the text white? */
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
+/* .present is the whole row past part of scheduler.
+   What does "color: white" do? Supposed to make
+   the text white? */
 .present {
   background-color: #ff6961;
   color: white;
 }
 
+/* .future is the whole row past part of scheduler.
+   What does "color: white" do? Supposed to make
+   the text white? */
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/* .saveBtn styles each save button on the 
+   right-hand side of the scheduler. */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -53,6 +72,9 @@ textarea {
   color: white;
 }
 
+/* What is this doing to the save button?
+   Which font-size is getting larger? Is the
+   text in the textare meant to get bigger?  */
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
