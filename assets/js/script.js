@@ -2,31 +2,61 @@
 var todayEl = dayjs();
 $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 
-var saveButtonEl = $('.saveBtn');
-var descriptionEl = $('.description');
+// var saveButtonEl = $('.saveBtn');
+// var descriptionEl = $('.description');
+
+var hour9SaveButton = $('#hour-9 .saveBtn');
+var hour10SaveButton = $('#hour-10 .saveBtn');
+var hour9 = $('#hour-9 .description');
+var hour10 = $('#hour-10 .description');
+
+// console.log(hour9);
+// console.log(hour10);
+// console.log(hour9SaveButton);
+// console.log(hour10SaveButton);
+
+// hoursArray will hold the key-value pairs of each hour and the task description?
+// var hoursArray = [];
 
 // Code inside this opening jQuery function will only run once the DOM is ready for JavaScript code to execute.
 $(function () {
-  saveButtonEl.on('click', function(event) {
-    event.preventDefault();
-    
-    var description = {
-      taskDescription: descriptionEl.val()
-    }
+    // var description = descriptionEl;
 
-    localStorage.setItem("description", JSON.stringify(description));
-    
-  // Code here that takes text from descriptionEl and puts it into localStorage.
-  // Only able to put one "description" into localStorage.
-  // "Application" registers descriptionEl as series of nested objects.
-  // Have to use an empty array to push multiple localStorage events into it?
-  
-  });
+    // saveButtonEl.on('click', function(event) {
+    //   event.preventDefault();
+
+    hour9SaveButton.on('click', function(event) {
+      event.preventDefault()
+
+      localStorage.setItem('hour-9', hour9.val());
+    })
+
+    hour10SaveButton.on('click', function(event) {
+      event.preventDefault()
+
+      localStorage.setItem('hour-10', hour10.val());
+    })
+
+      // This code should use the id in the containing time-block as a key to save the user input in local storage. 
+
+      // localStorage.setItem('hour-9', hour9.val());
+      // localStorage.setItem('hour-10', hour10.val());
+
+      // localStorage.setItem('hour-9', description.val());
+      // localStorage.setItem('hour-10', description.val());
+
+    });
+
+    // Store keys all the same data type (string or number).
+    // var description = localStorage.getItem("9")
+
+    // localStorage.setItem("description", JSON.stringify(description));
+
+    // Add a line that takes the description you got from localStorage and displays it in its designated 
+    // html element.
   
   // TODO: Add a listener for click events on the save button. 
-  
-  // This code should use the id in the containing time-block as a key to save the user input in local storage. 
-  
+    
   // HINT: What does `this` reference in the click listener function?
  
   // How can DOM traversal be used to get the "hour-x" id of the
@@ -49,4 +79,4 @@ $(function () {
 
   // TODO: Add code to display the current date in the header of the page.
   
-});
+// });
