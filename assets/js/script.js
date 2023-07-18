@@ -2,6 +2,18 @@
 var todayEl = dayjs();
 $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 
+// All of the 'time-block' divs.
+// var timeBlocksEl = $('.time-block');
+
+// All of the 'id=hour' divs.
+var hoursEl = $('[id|=hour]');
+console.log(hoursEl);
+
+// Return the value of an attribute:
+
+// $(selector).attr(attribute)
+
+
 // These elements seem to have problems working. Are they not specific enough?
 // var saveButtonEl = $('.saveBtn');
 // var descriptionEl = $('.description');
@@ -40,16 +52,22 @@ $(function () {
       event.preventDefault()
 
       localStorage.setItem('hour-10', hour10.val());
-    })   
+    })
+    
+  // TODO: Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour. 
+  
+  // HINTS: How can the id attribute of each time-block be used to conditionally add or remove the
+  // past, present, and future classes? 
+    
+    // function compareTimes() {
+    //   if ()
+    // }
 
-    // Store keys all the same data type (string or number).
-    // var description = localStorage.getItem("9")
+    
 
     // JSON.stringify() and .parse() are only needed if we're saving to localStorage as an object.
     // localStorage.setItem("description", JSON.stringify(description));
-
-    // Add a line that takes the description you got from localStorage and displays it in its designated 
-    // html element.
   
   // TODO: Add a listener for click events on the save button. 
     
@@ -58,17 +76,9 @@ $(function () {
   // How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? 
   
-  // How might the id be useful when saving the description in local storage?
-  
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. 
-  
-  // HINTS: How can the id attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? 
-  
   // How can Day.js be used to get the current hour in 24-hour time?
   
-  // TODO: Add code to get any user input that was saved in localStorage and setthe values of the corresponding 
+  // TODO: Add code to get any user input that was saved in localStorage and set the values of the corresponding 
   // textarea elements. 
   
   // HINT: How can the id attribute of each time-block be used to do this?
