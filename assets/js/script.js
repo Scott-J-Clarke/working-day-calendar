@@ -6,13 +6,36 @@ $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 // var timeBlocksEl = $('.time-block');
 
 // All of the 'id=hour' divs.
-var hoursEl = $('[id|=hour]');
-console.log(hoursEl);
+// var hoursEl = $('[id|=hour]');
+// console.log(hoursEl);
 
-// Return the value of an attribute:
+// Gets the string "9" from inside "9AM":
+var hour9El = $('#hour-9 .hour');
+var hour9ElText = hour9El.text();
+var hour9String = hour9ElText.charAt(0);
+console.log(hour9String);
 
-// $(selector).attr(attribute)
+// Gets the current hour from dayjs:
+var dayjsHour = dayjs().hour()
+console.log(dayjsHour);
 
+// How to get "hour-9" "time-block" class (so it can be changed later)?
+var hour9TimeBlockEl = $('#hour-9 .time-block');
+console.log(hour9TimeBlockEl);
+
+// Write an "if statement" to compare "9AM" row to dayjshour.
+// If string is less than dayjs than turn gray(past), same turn red(present), else turn green(future).
+function schedulerRowColorHour9() {
+  if (hour9String < dayjsHour) {
+  // How to add class "past", "present", or "future" to the div id="hour-9"?
+  }
+}
+
+
+
+
+
+// How to get the "10AM" text from inside its "hour" element?
 
 // These elements seem to have problems working. Are they not specific enough?
 // var saveButtonEl = $('.saveBtn');
@@ -85,5 +108,6 @@ $(function () {
 
   // TODO: Add code to display the current date in the header of the page.
     renderHour9();
-    renderHour10();   
+    renderHour10();
+    schedulerRowColorHour9()
 });
