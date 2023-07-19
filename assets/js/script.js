@@ -13,10 +13,29 @@ $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 // var saveButtonEl = $('.saveBtn');
 // var descriptionEl = $('.description');
 
+// For loop to iterate over each scheduler time, from 9AM to 5PM.
+for (var i = 9; i < 18; i++) {
+  // hour variable saves each time value as "hour-i" ("hour-9", "hour-10", etc.).
+  // padStart method puts a "0" in for the first digit (if there is only one digit in the time, like 9AM).
+  var hour = "hour-" + i.toString().padStart(2, "0");
+  // item variable gets hour ("hour-9", "hour-10", etc.) from localStorage.
+  var item = localStorage.getItem(hour);
+  // Not sure what this console.log is for. Does it just check the value of the "hour" variable?
+  console.log(hour);
+  // store into html element
+}
+
 // Gets the string "9" from inside "9AM":
 var hour9El = $('#hour-9 .hour');
 var hour9ElText = hour9El.text();
 var hour9String = hour9ElText.charAt(0);
+
+// Try to get the string "10" from inside "10AM":
+
+var hour10El = $('#hour-10 .hour');
+var hour10ElText = hour10El.text();
+var hour10String = hour10ElText.charAt();
+console.log(hour10String);
 
 // Gets the current hour from dayjs:
 var dayjsHour = dayjs().hour()
