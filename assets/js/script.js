@@ -1,4 +1,4 @@
-// Variables set in jQuery syntax. First variable sets current date.
+// jQuery variables. First variable sets current date.
 var todayEl = dayjs();
 $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 
@@ -9,37 +9,22 @@ $('#currentDay').text(todayEl.format('MMM D, YYYY'));
 // var hoursEl = $('[id|=hour]');
 // console.log(hoursEl);
 
+// These elements seem to have problems working. Are they not specific enough?
+// var saveButtonEl = $('.saveBtn');
+// var descriptionEl = $('.description');
+
 // Gets the string "9" from inside "9AM":
 var hour9El = $('#hour-9 .hour');
 var hour9ElText = hour9El.text();
 var hour9String = hour9ElText.charAt(0);
-console.log(hour9String);
 
 // Gets the current hour from dayjs:
 var dayjsHour = dayjs().hour()
-console.log(dayjsHour);
 
-// How to get "hour-9" "time-block" class (so it can be changed later)?
-var hour9TimeBlockEl = $('#hour-9 .time-block');
-console.log(hour9TimeBlockEl);
-
-// Write an "if statement" to compare "9AM" row to dayjshour.
-// If string is less than dayjs than turn gray(past), same turn red(present), else turn green(future).
-function schedulerRowColorHour9() {
-  if (hour9String < dayjsHour) {
-  // How to add class "past", "present", or "future" to the div id="hour-9"?
-  }
-}
-
-
-
-
+// Gets the "9AM" row:
+var hour9TimeBlockEl = $('#hour-9.time-block').eq(0);
 
 // How to get the "10AM" text from inside its "hour" element?
-
-// These elements seem to have problems working. Are they not specific enough?
-// var saveButtonEl = $('.saveBtn');
-// var descriptionEl = $('.description');
 
 var hour9 = $('#hour-9 .description');
 var hour10 = $('#hour-10 .description');
@@ -47,8 +32,16 @@ var hour10 = $('#hour-10 .description');
 var hour9SaveButton = $('#hour-9 .saveBtn');
 var hour10SaveButton = $('#hour-10 .saveBtn');
 
-// Code inside this opening jQuery function will only run once the DOM is ready for JavaScript code to execute.
+// jQuery function that runs all code written in jQuery once the DOM is ready.
 $(function () {
+
+  function schedulerRowColorHour9() {  
+    if (hour9String === dayjsHour) {
+      hour9TimeBlockEl.removeClass('future').addClass('present');
+    } if (hour9String < dayjsHour) {
+      hour9TimeBlockEl.removeClass('present').addClass('past');
+    } else hour9TimeBlockEl.addClass('future')
+  }   
     
   function renderHour9() {
     var hour9Description = localStorage.getItem('hour-9');
@@ -63,6 +56,12 @@ $(function () {
       hour10.val(hour10Description)
     }
   };
+
+  // String less than dayjs turns row gray(past), equal to dayjs turns red(present), larger than dayjs turns green(future).
+  // Seems that removeClass() is not working as the scheduler changes at each hour.
+  
+  
+  
 
     // This code should use the id in the containing time-block as a key to save the user input in local storage.
     hour9SaveButton.on('click', function(event) {
@@ -87,8 +86,6 @@ $(function () {
     //   if ()
     // }
 
-    
-
     // JSON.stringify() and .parse() are only needed if we're saving to localStorage as an object.
     // localStorage.setItem("description", JSON.stringify(description));
   
@@ -107,7 +104,7 @@ $(function () {
   // HINT: How can the id attribute of each time-block be used to do this?
 
   // TODO: Add code to display the current date in the header of the page.
+    schedulerRowColorHour9();
     renderHour9();
     renderHour10();
-    schedulerRowColorHour9()
 });
