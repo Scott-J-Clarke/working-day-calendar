@@ -20,7 +20,7 @@ Through making the scheduler I:
 
 ## Installation
 
-This coding quiz can be [viewed online](https://scott-j-clarke.github.io/coding-quiz/).
+ [See the scheduler online](https://scott-j-clarke.github.io/working-day-calendar/).
 
 ---
 
