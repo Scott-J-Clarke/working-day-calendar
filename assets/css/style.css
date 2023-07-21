@@ -3,6 +3,7 @@ body {
   font-size: 16px;
 }
 
+/* textarea is where tasks are typed into the scheduler. */
 textarea {
   background: transparent;
   border: none;
@@ -12,58 +13,47 @@ textarea {
   padding: 10px;
 }
 
-/* .description is part of <textarea> for each
-   type of time black (past, present, future) */
+/* .description is the class of each textarea. */
 .description {
   white-space: pre-wrap;
 }
 
-/* .time-block is part of the div for each type of
-   time block (past, present, future) */
+/* .time-block is the parent class for .hour, .description, and .saveBtn */
 .time-block {
   border-radius: 15px;
 }
 
-/* .row is part of the div for each type of time
-   block. "row" is next to "time-block" */
+/* .row sets each time section from time (on the left) to the save button (on the right). */
 .row {
   border-top: 1px solid white;
 }
 
-/* This .hour is the class that sets the CSS for
-   the time (9AM, etc.) on the right-hand side. */
+/* .hour is the class for the time (9AM, 10AM, etc.) on the left-hand side. */
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
-/* .past is the whole row past part of scheduler.
-   What does "color: white" do? Supposed to make
-   the text white? */
+/* .past is the class added to each time section when the hour has moved ahead. It is gray. */
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
-/* .present is the whole row past part of scheduler.
-   What does "color: white" do? Supposed to make
-   the text white? */
+/* .present is the class added to each time section when it is the present hour. It is red. */
 .present {
   background-color: #ff6961;
   color: white;
 }
 
-/* .future is the whole row past part of scheduler.
-   What does "color: white" do? Supposed to make
-   the text white? */
+/* .future is the class added to each time section when the hour has yet to happen. It is green. */
 .future {
   background-color: #77dd77;
   color: white;
 }
 
-/* .saveBtn styles each save button on the 
-   right-hand side of the scheduler. */
+/* .saveBtn is the class for each save button the right-hand side of each time section. */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -72,9 +62,7 @@ textarea {
   color: white;
 }
 
-/* What is this doing to the save button?
-   Which font-size is getting larger? Is the
-   text in the textare meant to get bigger?  */
+/* This seems to add some kind of styling to the save button after it is clicked. */
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
